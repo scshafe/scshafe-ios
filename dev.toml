@@ -7,6 +7,16 @@ class = "managed"
 
 # A native, desktop or game application: no language, build system or
 # package manager is assumed; [verify] is how this one is built and tested.
+#
+# A Swift package (a SwiftUI library), checked as a scshafe-dev `native`
+# project until scshafe-dev has a Swift library kind. scshafe-dev 0.16.0 has
+# no fitting library kind: `library` is npm-only (LIB-*: pnpm toolchain, npm
+# release kit), and `tool` is for Python or shell command-line programs
+# (scshafe-qt, a Python library, is a `tool` for that reason). `native` assumes
+# no language, runs [verify] in ci.yml and allows macOS runners (NATIVE-01),
+# and is the kind of the iOS apps this library serves (parley, mailroom-ios,
+# jobtrack-ios). [verify] runs on Linux (the PC has no Xcode); the Swift build
+# and tests are ci.yml's `ios` job on macos-26.
 [app]
 kind = "native"
 
