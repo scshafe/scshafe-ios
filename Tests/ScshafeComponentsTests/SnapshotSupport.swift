@@ -16,11 +16,11 @@ struct SnapshotVariant {
                 for (contrastName, contrast) in [("standard", UIAccessibilityContrast.normal), ("increased", .high)] {
                     variants.append(SnapshotVariant(
                         name: "\(styleName)-\(sizeName)-\(contrastName)",
-                        traits: UITraitCollection(traitsFrom: [
-                            UITraitCollection(userInterfaceStyle: style),
-                            UITraitCollection(preferredContentSizeCategory: size),
-                            UITraitCollection(accessibilityContrast: contrast),
-                        ])
+                        traits: UITraitCollection { traits in
+                            traits.userInterfaceStyle = style
+                            traits.preferredContentSizeCategory = size
+                            traits.accessibilityContrast = contrast
+                        }
                     ))
                 }
             }
@@ -30,13 +30,14 @@ struct SnapshotVariant {
 }
 
 /// Renders `view` once per variant at iPhone width, with the page background behind it.
+/// A package test target has no host app, so only offscreen rendering is possible:
+/// system glass is not snapshotted here (the Catalog app shows it); the solid fallback is.
 /// References are recorded on the CI runner and compared there (the pinned simulator).
 @MainActor
 func assertVariants<V: View>(
     _ view: V,
     height: CGFloat = 700,
     variants: [SnapshotVariant] = SnapshotVariant.all,
-    drawInWindow: Bool = false,
     file: StaticString = #filePath,
     testName: String = #function,
     line: UInt = #line
@@ -46,7 +47,6 @@ func assertVariants<V: View>(
             of: view.padding().frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 .background(SuiColor.bg),
             as: .image(
-                drawHierarchyInKeyWindow: drawInWindow,
                 perceptualPrecision: 0.98,
                 layout: .fixed(width: 390, height: height),
                 traits: variant.traits

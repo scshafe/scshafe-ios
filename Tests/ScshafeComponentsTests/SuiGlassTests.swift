@@ -3,8 +3,8 @@ import SwiftUI
 import Testing
 @testable import ScshafeComponents
 
-/// Few glass references on purpose: the OS draws the glass, and its look changes with
-/// the OS. The solid fallback is ours and is covered in every variant.
+/// The solid fallback is ours and is covered in every variant. System glass is drawn by
+/// the OS and needs a host app to render, so it is not snapshotted in a package test.
 @MainActor
 @Suite struct SuiGlassTests {
     private func controls() -> some View {
@@ -23,10 +23,6 @@ import Testing
             .suiGlass()
     }
 
-    private var lightAndDark: [SnapshotVariant] {
-        SnapshotVariant.all.filter { $0.name.hasSuffix("default-standard") }
-    }
-
     @Test func solidFallback() {
         assertVariants(
             VStack(spacing: SuiSpace.lg) {
@@ -35,18 +31,6 @@ import Testing
             }
             .environment(\.suiTransparency, .reduced),
             height: 300
-        )
-    }
-
-    @Test func glass() {
-        assertVariants(
-            VStack(spacing: SuiSpace.lg) {
-                controls()
-                labelOnGlass()
-            },
-            height: 300,
-            variants: lightAndDark,
-            drawInWindow: true
         )
     }
 }
