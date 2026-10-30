@@ -51,6 +51,27 @@ class SnapshotTest(unittest.TestCase):
         names = [gen.swift_name(tok["name"]) for tok in self.snap["tokens"]]
         self.assertEqual(len(names), len(set(names)))
 
+    def test_swift_output_covers_the_kept_tokens_and_drops_the_rest(self):
+        text = gen.render_tokens(self.snap)
+        for tok in self.snap["tokens"]:
+            name = gen.swift_name(tok["name"])
+            if tok["category"] in ("color", "surface", "border") and tok["name"] not in gen.DROPPED:
+                self.assertIn(f"public static let {name} = Color(sui:", text, tok["name"])
+            if tok["name"] in gen.DROPPED or tok["category"] in gen.DROPPED_CATEGORIES:
+                self.assertNotIn(f"`{tok['name']}`", text, tok["name"])
+
+    def test_swift_output_is_deterministic_and_has_no_alias_left(self):
+        self.assertEqual(gen.render_outputs(self.snap), gen.render_outputs(self.snap))
+        for text in gen.render_outputs(self.snap).values():
+            self.assertNotIn("var(--", text)
+
+    def test_native_output_has_five_tones_eight_buckets_and_the_text_roles(self):
+        text = gen.render_native(self.snap)
+        self.assertIn("case neutral, info, ok, warn, danger", text)
+        self.assertEqual(len(gen.NATIVE_BUCKETS), 8)
+        for role, *_ in gen.TEXT_ROLES:
+            self.assertIn(f"case .{role}:", text)
+
     def test_canonical_form(self):
         self.assertEqual(gen.SNAPSHOT.read_text(), gen.dump_snapshot(self.snap))
 
@@ -71,7 +92,7 @@ class SnapshotTest(unittest.TestCase):
                     value = gen.resolve(gen.parse_value(tok[theme]), by_name, theme)
                     self.assertIsInstance(value, gen.Rgba)
 
-    def test_swift_placeholder_names_the_snapshot_version(self):
+    def test_generated_swift_names_the_snapshot_version(self):
         text = "\n".join(p.read_text() for p in sorted(SWIFT_SOURCE.glob("*.swift")))
         versions = re.findall(r'version\s*=\s*"([0-9.]+)"', text)
         self.assertIn(self.snap["source"]["version"], versions)

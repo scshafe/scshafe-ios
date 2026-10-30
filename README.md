@@ -6,8 +6,8 @@ tokens and components for the SCSHAFE iOS apps. It is the iOS sibling of
 the design tokens) and [scshafe-qt](https://github.com/scshafe/scshafe-qt)
 (Qt/QML). iOS 26 and later; light and dark follow the system.
 
-Status: skeleton. The design (`docs/design.md`) is the project agent's first
-PR; nothing is built past the skeleton until the owner accepts it.
+Status: pre-0.1. The design (`docs/design.md`) is accepted; the milestones in
+it are built one PR each. Tokens, tones and text roles are generated (M1).
 
 - Brief: [docs/brief.md](docs/brief.md). Research: [docs/research.md](docs/research.md).
 - `Package.swift`: the products `ScshafeTokens` (generated tokens) and
