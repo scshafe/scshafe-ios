@@ -1,0 +1,14 @@
+# Swift Package Manager and Xcode
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xcscmblueprint
+
+# Python (the token generator and the repository tests)
+__pycache__/
+*.py[cod]
+.venv/
+
+.DS_Store

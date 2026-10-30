@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# The repository's one verify command (dev.toml [verify]). Swift-free, so it
+# runs on Linux (the PC has no Xcode): the token snapshot and generated files
+# are current (tools/gen_tokens.py --check), then the Python tests in tests/
+# (the generator, the snapshot and the repository's rules). Building and
+# testing the Swift package is CI's ios job on macOS (.github/workflows/ci.yml).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+python3 -B tools/gen_tokens.py --check
+python3 -B -m unittest discover -s tests -t . -v

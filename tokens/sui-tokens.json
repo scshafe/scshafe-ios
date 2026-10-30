@@ -1,0 +1,707 @@
+{
+  "schema": 1,
+  "source": {
+    "package": "@scshafe/ui",
+    "version": "0.9.0",
+    "file": "src/tokens.ts",
+    "fileSha256": "1d6e61feaa4d5a2dcb37d7fe278db48b280435c42440cac56ac21bc9f48cfb03",
+    "commit": "bf1b3df07a7777ad6578b4d4cc4932484ee1e9ca"
+  },
+  "registryHash": "sha256:f98002bcc61a0e4c2f977cd98aeba6f1cb9f1d00e88a8f16fee41c222f6d8cf8",
+  "reducedMotionDuration": "0s",
+  "tokens": [
+    {
+      "name": "--sui-text",
+      "light": "#1b2533",
+      "dark": "#eff6ff",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Body text colour."
+    },
+    {
+      "name": "--sui-text-strong",
+      "light": "#0b1220",
+      "dark": "#f8fbff",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Emphasised text (titles, strong)."
+    },
+    {
+      "name": "--sui-muted",
+      "light": "#465366",
+      "dark": "#9fb0c8",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Secondary text, labels and hints."
+    },
+    {
+      "name": "--sui-blue",
+      "light": "#0a4f99",
+      "dark": "#6cb6ff",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Base blue; the default accent."
+    },
+    {
+      "name": "--sui-accent",
+      "light": "var(--sui-blue)",
+      "dark": "var(--sui-blue)",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Accent for links, focus and primary actions."
+    },
+    {
+      "name": "--sui-accent-hover",
+      "light": "#083f78",
+      "dark": "#8cc8ff",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Accent on hover."
+    },
+    {
+      "name": "--sui-accent-subtle",
+      "light": "rgba(10, 79, 153, 0.1)",
+      "dark": "rgba(108, 182, 255, 0.11)",
+      "themed": true,
+      "category": "color",
+      "role": "overlay",
+      "description": "Accent-tinted background (selection, user messages)."
+    },
+    {
+      "name": "--sui-green",
+      "light": "#11602a",
+      "dark": "#52d273",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Base green; the default success colour."
+    },
+    {
+      "name": "--sui-ok",
+      "light": "var(--sui-green)",
+      "dark": "var(--sui-green)",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Success / healthy state."
+    },
+    {
+      "name": "--sui-ok-subtle",
+      "light": "rgba(17, 96, 42, 0.1)",
+      "dark": "rgba(82, 210, 115, 0.08)",
+      "themed": true,
+      "category": "color",
+      "role": "overlay",
+      "description": "Success-tinted background."
+    },
+    {
+      "name": "--sui-tone-green",
+      "light": "var(--sui-green)",
+      "dark": "var(--sui-green)",
+      "themed": true,
+      "category": "color",
+      "role": "decorative",
+      "description": "Green tone base (tints and borders)."
+    },
+    {
+      "name": "--sui-tone-green-text",
+      "light": "#0f5a26",
+      "dark": "#bff8c9",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Text on a green tint."
+    },
+    {
+      "name": "--sui-tone-blue",
+      "light": "var(--sui-blue)",
+      "dark": "var(--sui-blue)",
+      "themed": true,
+      "category": "color",
+      "role": "decorative",
+      "description": "Blue tone base (tints and borders)."
+    },
+    {
+      "name": "--sui-tone-blue-text",
+      "light": "#0550ae",
+      "dark": "#cae5ff",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Text on a blue tint."
+    },
+    {
+      "name": "--sui-tone-yellow",
+      "light": "#9a6700",
+      "dark": "#f5c542",
+      "themed": true,
+      "category": "color",
+      "role": "decorative",
+      "description": "Yellow tone base (tints and borders)."
+    },
+    {
+      "name": "--sui-tone-yellow-text",
+      "light": "#7d4e00",
+      "dark": "#ffe8a3",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Text on a yellow tint."
+    },
+    {
+      "name": "--sui-tone-orange",
+      "light": "#bc4c00",
+      "dark": "#ff9f43",
+      "themed": true,
+      "category": "color",
+      "role": "decorative",
+      "description": "Orange tone base (tints and borders)."
+    },
+    {
+      "name": "--sui-tone-orange-text",
+      "light": "#953800",
+      "dark": "#ffd2a4",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Text on a orange tint."
+    },
+    {
+      "name": "--sui-tone-red",
+      "light": "#cf222e",
+      "dark": "#ff6b6b",
+      "themed": true,
+      "category": "color",
+      "role": "decorative",
+      "description": "Red tone base (tints and borders)."
+    },
+    {
+      "name": "--sui-tone-red-text",
+      "light": "#a40e26",
+      "dark": "#ffc4c4",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Text on a red tint."
+    },
+    {
+      "name": "--sui-tone-purple",
+      "light": "#8250df",
+      "dark": "#b18cff",
+      "themed": true,
+      "category": "color",
+      "role": "decorative",
+      "description": "Purple tone base (tints and borders)."
+    },
+    {
+      "name": "--sui-tone-purple-text",
+      "light": "#6639ba",
+      "dark": "#dfd2ff",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Text on a purple tint."
+    },
+    {
+      "name": "--sui-bg",
+      "light": "#f6f8fb",
+      "dark": "#08111f",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Page background."
+    },
+    {
+      "name": "--sui-panel",
+      "light": "#ffffff",
+      "dark": "#111d2f",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Panel background."
+    },
+    {
+      "name": "--sui-card",
+      "light": "#ffffff",
+      "dark": "rgba(17, 29, 47, 0.82)",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Card and message-bubble background."
+    },
+    {
+      "name": "--sui-bg-elevated",
+      "light": "#eef2f7",
+      "dark": "rgba(18, 31, 50, 0.72)",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Raised surface (rails, menus)."
+    },
+    {
+      "name": "--sui-surface-2",
+      "light": "var(--sui-bg-elevated)",
+      "dark": "var(--sui-bg-elevated)",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Secondary surface; defaults to the elevated surface."
+    },
+    {
+      "name": "--sui-popover",
+      "light": "rgba(255, 255, 255, 0.98)",
+      "dark": "rgba(8, 17, 31, 0.96)",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Opaque floating surface: what glass becomes under reduced transparency or increased contrast; pinned table cells."
+    },
+    {
+      "name": "--sui-field",
+      "light": "#ffffff",
+      "dark": "rgba(8, 17, 31, 0.5)",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Form control and button background."
+    },
+    {
+      "name": "--sui-bg-hover",
+      "light": "rgba(10, 79, 153, 0.06)",
+      "dark": "rgba(108, 182, 255, 0.06)",
+      "themed": true,
+      "category": "surface",
+      "role": "overlay",
+      "description": "Row / item hover background."
+    },
+    {
+      "name": "--sui-tint",
+      "light": "rgba(15, 23, 42, 0.035)",
+      "dark": "rgba(255, 255, 255, 0.04)",
+      "themed": true,
+      "category": "surface",
+      "role": "overlay",
+      "description": "Neutral tint that sets a block off its surface (rows, readers, pills)."
+    },
+    {
+      "name": "--sui-code-bg",
+      "light": "rgba(15, 23, 42, 0.05)",
+      "dark": "rgba(4, 10, 20, 0.58)",
+      "themed": true,
+      "category": "surface",
+      "role": "overlay",
+      "description": "Code and preformatted-text background."
+    },
+    {
+      "name": "--sui-backdrop",
+      "light": "rgba(15, 23, 42, 0.35)",
+      "dark": "rgba(0, 0, 0, 0.5)",
+      "themed": true,
+      "category": "surface",
+      "role": "decorative",
+      "description": "Scrim behind modal dialogs and popovers."
+    },
+    {
+      "name": "--sui-line",
+      "light": "rgba(31, 45, 66, 0.16)",
+      "dark": "rgba(183, 203, 231, 0.18)",
+      "themed": true,
+      "category": "border",
+      "role": "decorative",
+      "description": "Default hairline and divider."
+    },
+    {
+      "name": "--sui-border",
+      "light": "var(--sui-line)",
+      "dark": "var(--sui-line)",
+      "themed": true,
+      "category": "border",
+      "role": "decorative",
+      "description": "Component border; defaults to the hairline."
+    },
+    {
+      "name": "--sui-border-strong",
+      "light": "rgba(31, 45, 66, 0.28)",
+      "dark": "rgba(183, 203, 231, 0.28)",
+      "themed": true,
+      "category": "border",
+      "role": "decorative",
+      "description": "Stronger border for floating layers."
+    },
+    {
+      "name": "--sui-border-hover",
+      "light": "rgba(10, 79, 153, 0.45)",
+      "dark": "rgba(108, 182, 255, 0.36)",
+      "themed": true,
+      "category": "border",
+      "role": "decorative",
+      "description": "Border on hover / focus-within."
+    },
+    {
+      "name": "--sui-field-border",
+      "light": "#6b778a",
+      "dark": "#6b7c93",
+      "themed": true,
+      "category": "border",
+      "role": "indicator",
+      "description": "Boundary of a form control (3:1 against its surroundings)."
+    },
+    {
+      "name": "--sui-focus-ring",
+      "light": "var(--sui-accent)",
+      "dark": "var(--sui-accent)",
+      "themed": true,
+      "category": "border",
+      "role": "indicator",
+      "description": "Keyboard focus indicator (:focus-visible outline)."
+    },
+    {
+      "name": "--sui-shadow",
+      "light": "0 10px 34px rgba(15, 23, 42, 0.1)",
+      "dark": "0 10px 34px rgba(0, 0, 0, 0.22)",
+      "themed": true,
+      "category": "shadow",
+      "role": "decorative",
+      "description": "Panel shadow."
+    },
+    {
+      "name": "--sui-shadow-lg",
+      "light": "0 16px 40px rgba(15, 23, 42, 0.16)",
+      "dark": "0 16px 40px rgba(0, 0, 0, 0.34)",
+      "themed": true,
+      "category": "shadow",
+      "role": "decorative",
+      "description": "Popover, dialog and toast shadow."
+    },
+    {
+      "name": "--sui-shadow-color",
+      "light": "rgba(15, 23, 42, 0.12)",
+      "dark": "rgba(0, 0, 0, 0.22)",
+      "themed": true,
+      "category": "shadow",
+      "role": "decorative",
+      "description": "Colour of small, directional shadows (pinned columns, raised buttons)."
+    },
+    {
+      "name": "--sui-glass",
+      "light": "rgba(255, 255, 255, 0.72)",
+      "dark": "rgba(24, 36, 56, 0.82)",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Glass fill of controls and floating layers (buttons, tab strips, popovers, toasts)."
+    },
+    {
+      "name": "--sui-glass-thick",
+      "light": "rgba(255, 255, 255, 0.88)",
+      "dark": "rgba(17, 29, 47, 0.88)",
+      "themed": true,
+      "category": "surface",
+      "role": "surface",
+      "description": "Thicker glass for larger, longer-lived surfaces (sheets, rails, detail popovers)."
+    },
+    {
+      "name": "--sui-glass-sheen",
+      "light": "rgba(255, 255, 255, 0.55)",
+      "dark": "rgba(255, 255, 255, 0.07)",
+      "themed": true,
+      "category": "surface",
+      "role": "overlay",
+      "description": "Light caught across the top of a glass surface (the start of its sheen gradient)."
+    },
+    {
+      "name": "--sui-glass-edge",
+      "light": "rgba(31, 45, 66, 0.14)",
+      "dark": "rgba(183, 203, 231, 0.16)",
+      "themed": true,
+      "category": "border",
+      "role": "decorative",
+      "description": "Glass rim: the edge that separates glass from what is behind it."
+    },
+    {
+      "name": "--sui-glass-highlight",
+      "light": "rgba(255, 255, 255, 0.9)",
+      "dark": "rgba(255, 255, 255, 0.14)",
+      "themed": true,
+      "category": "border",
+      "role": "decorative",
+      "description": "Bright inner highlight along the top edge of glass."
+    },
+    {
+      "name": "--sui-glass-accent-text",
+      "light": "#083f78",
+      "dark": "#c4e2ff",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Accent text on glass: the selected tab's label, Card's \"show full\"."
+    },
+    {
+      "name": "--sui-glass-danger-text",
+      "light": "#7d0a1d",
+      "dark": "#ffd6d6",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Danger text on glass: the danger button, error toasts, destructive menu items."
+    },
+    {
+      "name": "--sui-glass-muted",
+      "light": "#3a4552",
+      "dark": "#cbd5e3",
+      "themed": true,
+      "category": "color",
+      "role": "text",
+      "description": "Secondary text on glass: unselected tabs, counts, menu shortcuts, rail titles, sheet descriptions."
+    },
+    {
+      "name": "--sui-glass-shadow",
+      "light": "0 8px 24px rgba(15, 23, 42, 0.1), 0 1px 3px rgba(15, 23, 42, 0.08)",
+      "dark": "0 10px 30px rgba(0, 0, 0, 0.36), 0 1px 3px rgba(0, 0, 0, 0.3)",
+      "themed": true,
+      "category": "shadow",
+      "role": "decorative",
+      "description": "Elevation of floating glass."
+    },
+    {
+      "name": "--sui-glass-blur",
+      "light": "24px",
+      "dark": "24px",
+      "themed": false,
+      "category": "material",
+      "role": null,
+      "description": "Backdrop blur of glass; 0px under reduced transparency."
+    },
+    {
+      "name": "--sui-glass-saturate",
+      "light": "180%",
+      "dark": "180%",
+      "themed": false,
+      "category": "material",
+      "role": null,
+      "description": "Backdrop saturation of glass, so colour from behind carries through; 100% under reduced transparency."
+    },
+    {
+      "name": "--sui-radius-sm",
+      "light": "8px",
+      "dark": "8px",
+      "themed": false,
+      "category": "radius",
+      "role": null,
+      "description": "Small corner radius (inputs, code)."
+    },
+    {
+      "name": "--sui-radius-md",
+      "light": "12px",
+      "dark": "12px",
+      "themed": false,
+      "category": "radius",
+      "role": null,
+      "description": "Medium corner radius (cards)."
+    },
+    {
+      "name": "--sui-radius",
+      "light": "var(--sui-radius-md)",
+      "dark": "var(--sui-radius-md)",
+      "themed": false,
+      "category": "radius",
+      "role": null,
+      "description": "Default corner radius."
+    },
+    {
+      "name": "--sui-radius-lg",
+      "light": "16px",
+      "dark": "16px",
+      "themed": false,
+      "category": "radius",
+      "role": null,
+      "description": "Large corner radius (popovers, toasts, rails, bubbles)."
+    },
+    {
+      "name": "--sui-radius-xl",
+      "light": "20px",
+      "dark": "20px",
+      "themed": false,
+      "category": "radius",
+      "role": null,
+      "description": "Extra-large corner radius (dialogs, tab strips)."
+    },
+    {
+      "name": "--sui-radius-pill",
+      "light": "999px",
+      "dark": "999px",
+      "themed": false,
+      "category": "radius",
+      "role": null,
+      "description": "Capsule: buttons, tabs, badges and chips."
+    },
+    {
+      "name": "--sui-mono",
+      "light": "ui-monospace, SFMono-Regular, Menlo, monospace",
+      "dark": "ui-monospace, SFMono-Regular, Menlo, monospace",
+      "themed": false,
+      "category": "font",
+      "role": null,
+      "description": "Monospace face for ids, code and keys."
+    },
+    {
+      "name": "--sui-chat-text-size",
+      "light": "13px",
+      "dark": "13px",
+      "themed": false,
+      "category": "font",
+      "role": null,
+      "description": "MessageBubble body text size."
+    },
+    {
+      "name": "--sui-duration",
+      "light": "120ms",
+      "dark": "120ms",
+      "themed": false,
+      "category": "motion",
+      "role": null,
+      "description": "Duration of every transition; 0s under prefers-reduced-motion: reduce."
+    },
+    {
+      "name": "--sui-ease",
+      "light": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "dark": "cubic-bezier(0.2, 0.8, 0.2, 1)",
+      "themed": false,
+      "category": "motion",
+      "role": null,
+      "description": "Easing of colour, opacity and border transitions."
+    },
+    {
+      "name": "--sui-ease-spring",
+      "light": "cubic-bezier(0.34, 1.36, 0.64, 1)",
+      "dark": "cubic-bezier(0.34, 1.36, 0.64, 1)",
+      "themed": false,
+      "category": "motion",
+      "role": null,
+      "description": "Easing with a slight overshoot, for scale and position (presses, layers appearing)."
+    },
+    {
+      "name": "--sui-clamp-2xs",
+      "light": "80px",
+      "dark": "80px",
+      "themed": false,
+      "category": "clamp",
+      "role": null,
+      "description": "Card body clamp, 2xs."
+    },
+    {
+      "name": "--sui-clamp-xs",
+      "light": "120px",
+      "dark": "120px",
+      "themed": false,
+      "category": "clamp",
+      "role": null,
+      "description": "Card body clamp, xs."
+    },
+    {
+      "name": "--sui-clamp-sm",
+      "light": "160px",
+      "dark": "160px",
+      "themed": false,
+      "category": "clamp",
+      "role": null,
+      "description": "Card body clamp, sm."
+    },
+    {
+      "name": "--sui-clamp-md",
+      "light": "200px",
+      "dark": "200px",
+      "themed": false,
+      "category": "clamp",
+      "role": null,
+      "description": "Card body clamp, md."
+    },
+    {
+      "name": "--sui-clamp-lg",
+      "light": "280px",
+      "dark": "280px",
+      "themed": false,
+      "category": "clamp",
+      "role": null,
+      "description": "Card body clamp, lg."
+    },
+    {
+      "name": "--sui-clamp-xl",
+      "light": "360px",
+      "dark": "360px",
+      "themed": false,
+      "category": "clamp",
+      "role": null,
+      "description": "Card body clamp, xl."
+    },
+    {
+      "name": "--sui-space-none",
+      "light": "0px",
+      "dark": "0px",
+      "themed": false,
+      "category": "space",
+      "role": null,
+      "description": "Spacing step none."
+    },
+    {
+      "name": "--sui-space-xs",
+      "light": "4px",
+      "dark": "4px",
+      "themed": false,
+      "category": "space",
+      "role": null,
+      "description": "Spacing step xs."
+    },
+    {
+      "name": "--sui-space-sm",
+      "light": "8px",
+      "dark": "8px",
+      "themed": false,
+      "category": "space",
+      "role": null,
+      "description": "Spacing step sm."
+    },
+    {
+      "name": "--sui-space-md",
+      "light": "12px",
+      "dark": "12px",
+      "themed": false,
+      "category": "space",
+      "role": null,
+      "description": "Spacing step md."
+    },
+    {
+      "name": "--sui-space-lg",
+      "light": "16px",
+      "dark": "16px",
+      "themed": false,
+      "category": "space",
+      "role": null,
+      "description": "Spacing step lg."
+    },
+    {
+      "name": "--sui-space-xl",
+      "light": "24px",
+      "dark": "24px",
+      "themed": false,
+      "category": "space",
+      "role": null,
+      "description": "Spacing step xl."
+    },
+    {
+      "name": "--sui-space-2xl",
+      "light": "32px",
+      "dark": "32px",
+      "themed": false,
+      "category": "space",
+      "role": null,
+      "description": "Spacing step 2xl."
+    }
+  ]
+}
