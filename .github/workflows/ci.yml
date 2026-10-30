@@ -12,9 +12,10 @@ name: CI
 #
 # Two jobs: `verify` is dev.toml [verify] on Linux (the token --check and the
 # Python tests; no Xcode needed), `ios` builds the Swift package and runs its
-# tests on an iPhone simulator. NATIVE-01: macos-26 with Xcode 26.6 selected,
-# as homemesh and mailroom-ios pin it. The design (docs/design.md) settles the
-# pinned simulator, snapshot tests and an Xcode 27 leg.
+# tests on a pinned iPhone simulator (iPhone 17, iOS 26.5: snapshots compare
+# only on the device and OS that recorded them). NATIVE-01: macos-26 with
+# Xcode 26.6 selected, as homemesh and mailroom-ios pin it. No Xcode 27 leg
+# until the macos-26 image has a stable one (docs/design.md, 10).
 on:
   push:
     branches: ["**"]
@@ -53,32 +54,11 @@ jobs:
         run: |
           sudo xcode-select -s /Applications/Xcode_26.6.app
           xcodebuild -version
-      # The newest iOS runtime's first iPhone, until the design pins one.
-      - name: Pick an iPhone simulator
-        id: sim
-        run: |
-          xcrun simctl list devices available -j > "$RUNNER_TEMP/devices.json"
-          python3 - "$RUNNER_TEMP/devices.json" >> "$GITHUB_OUTPUT" <<'PY'
-          import json, sys
-          devices = json.load(open(sys.argv[1]))["devices"]
-          best = None
-          for runtime, entries in devices.items():
-              if ".SimRuntime.iOS-" not in runtime:
-                  continue
-              version = tuple(int(p) for p in runtime.rsplit("iOS-", 1)[1].split("-"))
-              for dev in entries:
-                  if dev["name"].startswith("iPhone") and (best is None or version > best[0]):
-                      best = (version, dev["udid"], dev["name"])
-          if best is None:
-              sys.exit("no available iPhone simulator")
-          print(f"udid={best[1]}")
-          print(f"iPhone simulator: {best[2]}, iOS {'.'.join(map(str, best[0]))}", file=sys.stderr)
-          PY
       - name: Build and test the package (iOS simulator)
         run: |
           set -o pipefail
           xcodebuild test -scheme scshafe-ios-Package \
-            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -destination "platform=iOS Simulator,name=iPhone 17,OS=26.5" \
             CODE_SIGNING_ALLOWED=NO 2>&1 | tee "$RUNNER_TEMP/xcodebuild.log" \
             | grep -E --line-buffered '(error:|warning:|Test |✔|✘|\*\* )' || true
           grep -q '\*\* TEST SUCCEEDED \*\*' "$RUNNER_TEMP/xcodebuild.log"

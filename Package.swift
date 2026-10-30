@@ -1,7 +1,6 @@
 // swift-tools-version: 6.2
 // The SCSHAFE iOS component library. iOS 26 is the floor for the library and
-// for every app that uses it (docs/brief.md). The product and target names are
-// provisional: the design (docs/design.md) may refine them.
+// for every app that uses it (docs/brief.md). Names and layout: docs/design.md.
 import PackageDescription
 
 let package = Package(
@@ -19,6 +18,8 @@ let package = Package(
     targets: [
         .target(name: "ScshafeTokens"),
         .target(name: "ScshafeComponents", dependencies: ["ScshafeTokens"]),
+        .testTarget(name: "ScshafeTokensTests", dependencies: ["ScshafeTokens"]),
         .testTarget(name: "ScshafeComponentsTests", dependencies: ["ScshafeComponents"]),
-    ]
+    ],
+    swiftLanguageModes: [.v6]
 )
