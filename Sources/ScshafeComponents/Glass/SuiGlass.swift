@@ -65,7 +65,7 @@ extension View {
 
     /// `suiGlass` in a capsule.
     public func suiGlass(_ style: SuiGlassStyle = .regular, interactive: Bool = false) -> some View {
-        suiGlass(style, in: SuiPill(), interactive: interactive)
+        suiGlass(style, in: Capsule(), interactive: interactive)
     }
 }
 

@@ -54,12 +54,12 @@ struct SuiSolidButtonStyle: ButtonStyle {
             .foregroundStyle(kind == .glass ? SuiColor.text : tint)
             .padding(.horizontal, SuiSpace.lg)
             .frame(minHeight: 44)
-            .background(kind == .glass ? SuiColor.popover : SuiColor.accentSubtle, in: SuiPill())
-            .overlay(SuiPill().suiBorder(
+            .background(kind == .glass ? SuiColor.popover : SuiColor.accentSubtle, in: Capsule())
+            .overlay(Capsule().suiBorder(
                 kind == .glass ? SuiColor.borderStrong : tint,
                 lineWidth: contrast == .increased ? 2 : 1))
             .opacity(configuration.isPressed ? 0.7 : 1)
-            .contentShape(SuiPill())
+            .contentShape(Capsule())
     }
 }
 
