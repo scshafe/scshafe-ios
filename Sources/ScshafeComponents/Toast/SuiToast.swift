@@ -52,8 +52,17 @@ struct SuiToastView: View {
     let item: SuiToastItem
     let onUndo: () -> Void
 
+    @Environment(\.dynamicTypeSize) private var typeSize
+
+    /// At accessibility text sizes the message gets the full width and Undo goes below it.
+    private var layout: AnyLayout {
+        typeSize.isAccessibilitySize
+            ? AnyLayout(VStackLayout(alignment: .leading, spacing: SuiSpace.xs))
+            : AnyLayout(HStackLayout(spacing: SuiSpace.md))
+    }
+
     var body: some View {
-        HStack(spacing: SuiSpace.md) {
+        layout {
             Image(systemName: item.tone.symbol)
                 .foregroundStyle(item.tone == .neutral ? SuiColor.text : item.tone.text)
                 .accessibilityHidden(true)
