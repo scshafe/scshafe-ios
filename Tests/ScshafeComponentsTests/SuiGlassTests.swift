@@ -9,12 +9,17 @@ import Testing
 @Suite struct SuiGlassTests {
     private func controls() -> some View {
         SuiGlassContainer(spacing: SuiSpace.md) {
-            HStack(spacing: SuiSpace.md) {
-                Button("Back") {}.suiButtonStyle(.glass)
-                Button("Save") {}.suiButtonStyle(.prominent)
-                Button("Delete") {}.suiButtonStyle(.destructive)
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: SuiSpace.md) { buttons }
+                VStack(spacing: SuiSpace.md) { buttons }
             }
         }
+    }
+
+    @ViewBuilder private var buttons: some View {
+        Button("Back") {}.suiButtonStyle(.glass)
+        Button("Save") {}.suiButtonStyle(.prominent)
+        Button("Delete") {}.suiButtonStyle(.destructive)
     }
 
     private func labelOnGlass() -> some View {
@@ -30,7 +35,7 @@ import Testing
                 labelOnGlass()
             }
             .environment(\.suiTransparency, .reduced),
-            height: 300
+            height: 420
         )
     }
 }

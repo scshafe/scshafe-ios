@@ -54,8 +54,8 @@ public struct SuiChip: View {
         .foregroundStyle(text)
         .padding(.horizontal, SuiSpace.sm)
         .padding(.vertical, SuiSpace.xs)
-        .background(fill, in: Capsule())
-        .overlay(Capsule().suiBorder(border))
+        .background(fill, in: SuiPill())
+        .overlay(SuiPill().suiBorder(border))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(Self.spokenLabel(prefix: prefix, title: title))
     }
