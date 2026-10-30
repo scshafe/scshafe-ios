@@ -62,3 +62,13 @@ jobs:
             CODE_SIGNING_ALLOWED=NO 2>&1 | tee "$RUNNER_TEMP/xcodebuild.log" \
             | grep -E --line-buffered '(error:|warning:|Test |✔|✘|\*\* )' || true
           grep -q '\*\* TEST SUCCEEDED \*\*' "$RUNNER_TEMP/xcodebuild.log"
+      # Snapshot references are recorded on this runner image; a missing or
+      # differing one fails the test and uploads the images to commit or inspect.
+      - name: Upload snapshots
+        if: always()
+        # actions/upload-artifact v7.0.1
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: snapshots
+          path: Tests/**/__Snapshots__
+          if-no-files-found: ignore

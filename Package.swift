@@ -15,11 +15,21 @@ let package = Package(
         // Styles, modifiers and components built on the tokens.
         .library(name: "ScshafeComponents", targets: ["ScshafeComponents"]),
     ],
+    dependencies: [
+        // Snapshot tests only. Pinned exactly: references are recorded with it.
+        .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", exact: "1.19.6"),
+    ],
     targets: [
         .target(name: "ScshafeTokens"),
         .target(name: "ScshafeComponents", dependencies: ["ScshafeTokens"]),
         .testTarget(name: "ScshafeTokensTests", dependencies: ["ScshafeTokens"]),
-        .testTarget(name: "ScshafeComponentsTests", dependencies: ["ScshafeComponents"]),
+        .testTarget(
+            name: "ScshafeComponentsTests",
+            dependencies: [
+                "ScshafeComponents",
+                .product(name: "SnapshotTesting", package: "swift-snapshot-testing"),
+            ]
+        ),
     ],
     swiftLanguageModes: [.v6]
 )
