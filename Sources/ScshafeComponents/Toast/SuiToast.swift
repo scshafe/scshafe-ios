@@ -69,6 +69,7 @@ struct SuiToastView: View {
             Text(item.message)
                 .font(.subheadline)
                 .foregroundStyle(SuiColor.text)
+                .fixedSize(horizontal: false, vertical: true)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .accessibilityLabel(item.tone == .neutral ? item.message : "\(item.toneLabel), \(item.message)")
             if item.undo != nil {
