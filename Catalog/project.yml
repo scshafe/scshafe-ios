@@ -1,0 +1,32 @@
+# The Catalog: a gallery of the tokens, tones and components in every state, with
+# switches for appearance, text size and transparency. It is a host app, so it also shows
+# the system glass that package tests cannot render. Generate the project with
+# XcodeGen (`xcodegen generate --spec Catalog/project.yml`); it is not committed.
+name: ScshafeCatalog
+options:
+  bundleIdPrefix: dev.scshafe
+  deploymentTarget:
+    iOS: "26.0"
+packages:
+  ScshafeIOS:
+    path: ..
+targets:
+  ScshafeCatalog:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+    dependencies:
+      - package: ScshafeIOS
+        product: ScshafeTokens
+      - package: ScshafeIOS
+        product: ScshafeComponents
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.scshafe.catalog
+        SWIFT_VERSION: "6.0"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Catalog
+        MARKETING_VERSION: "0.0.0"
+        CURRENT_PROJECT_VERSION: "1"
