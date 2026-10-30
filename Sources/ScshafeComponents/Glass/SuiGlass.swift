@@ -39,7 +39,7 @@ private struct SuiGlassModifier<S: InsettableShape>: ViewModifier {
         if solid {
             content
                 .background(SuiColor.popover, in: shape)
-                .overlay(shape.strokeBorder(SuiColor.borderStrong, lineWidth: contrast == .increased ? 2 : 1))
+                .overlay(shape.suiBorder(SuiColor.borderStrong, lineWidth: contrast == .increased ? 2 : 1))
                 .suiShadow(SuiShadow.floating)
         } else if style == .clearOverMedia {
             content

@@ -36,7 +36,7 @@ import Testing
                 SuiBanner("Saved", tone: .ok)
                 SuiBanner("Heads up", tone: .warn, message: "Two rooms are not placed yet.", onDismiss: {})
                 SuiBanner("Could not save", tone: .danger, message: "Check the connection and try again.") {
-                    Button("Retry") {}.suiButtonStyle(.glass)
+                    Button("Retry") {}.buttonStyle(.bordered)
                 }
                 SuiBanner("Note", tone: .neutral)
                 SuiBanner("Update available", tone: .info)

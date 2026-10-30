@@ -78,7 +78,7 @@ public struct SuiBanner<Actions: View>: View {
         .background(SuiColor.card, in: shape)
         .overlay(alignment: .leading) { tone.base.frame(width: SuiSpace.xs) }
         .clipShape(shape)
-        .overlay(shape.strokeBorder(SuiColor.border))
+        .overlay(shape.suiBorder(SuiColor.border))
         .accessibilityElement(children: .contain)
         .onAppear {
             if tone == .warn || tone == .danger {
@@ -108,7 +108,7 @@ extension SuiBanner where Actions == EmptyView {
     VStack(spacing: SuiSpace.md) {
         SuiBanner("Saved", tone: .ok)
         SuiBanner("Could not save", tone: .danger, message: "Check the connection and try again.", onDismiss: {}) {
-            Button("Retry") {}.suiButtonStyle(.glass)
+            Button("Retry") {}.buttonStyle(.bordered)
         }
     }
     .padding()
