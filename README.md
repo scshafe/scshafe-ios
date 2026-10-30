@@ -7,8 +7,9 @@ the design tokens) and [scshafe-qt](https://github.com/scshafe/scshafe-qt)
 (Qt/QML). iOS 26 and later; light and dark follow the system.
 
 Status: pre-0.1. The design (`docs/design.md`) is accepted; the milestones in
-it are built one PR each. Tokens, tones and text roles are generated (M1).
+it are built one PR each. Built so far: tokens, tones, text roles (M1); glass, chip, banner (M2); empty state, toast, loadable, haptics and the Catalog app (M3).
 
+- Using it: [docs/adopting.md](docs/adopting.md). Design: [docs/design.md](docs/design.md).
 - Brief: [docs/brief.md](docs/brief.md). Research: [docs/research.md](docs/research.md).
 - `Package.swift`: the products `ScshafeTokens` (generated tokens) and
   `ScshafeComponents` (styles and components); provisional names.
