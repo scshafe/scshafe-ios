@@ -138,7 +138,7 @@ struct CatalogView: View {
 
     private var loadable: some View {
         section("Loading, empty, error, content") {
-            Picker("State", selection: Binding(get: { stateIndex }, set: setState)) {
+            Picker("State", selection: Binding(get: { stateIndex }, set: { setState($0) })) {
                 Text("Loading").tag(0)
                 Text("Empty").tag(1)
                 Text("Error").tag(2)
