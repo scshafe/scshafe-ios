@@ -19,20 +19,25 @@ import Testing
 
     @Test func toastExpiresAfterItsHold() {
         var hold = SuiToastHold(.seconds(1))
-        #expect(!hold.advance(by: .milliseconds(600), touching: false))
-        #expect(hold.advance(by: .milliseconds(600), touching: false))
+        let early = hold.advance(by: .milliseconds(600), touching: false)
+        #expect(!early)
+        let late = hold.advance(by: .milliseconds(600), touching: false)
+        #expect(late)
     }
 
     @Test func toastWaitsWhileTouched() {
         var hold = SuiToastHold(.seconds(1))
-        #expect(!hold.advance(by: .seconds(5), touching: true))
+        let whileTouched = hold.advance(by: .seconds(5), touching: true)
+        #expect(!whileTouched)
         #expect(hold.remaining == .seconds(1))
-        #expect(hold.advance(by: .seconds(1), touching: false))
+        let afterwards = hold.advance(by: .seconds(1), touching: false)
+        #expect(afterwards)
     }
 
     @Test func toastNeverExpiresWhenSuspended() {
         var hold = SuiToastHold(.seconds(1), suspended: true)
-        #expect(!hold.advance(by: .seconds(60), touching: false))
+        let suspended = hold.advance(by: .seconds(60), touching: false)
+        #expect(!suspended)
     }
 
     @Test func toastItemsAreDistinct() {
