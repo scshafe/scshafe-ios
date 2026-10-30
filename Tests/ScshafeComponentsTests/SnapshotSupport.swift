@@ -5,6 +5,7 @@ import UIKit
 
 /// The variants every component state is rendered in (docs/design.md, 8): light and
 /// dark x default and an accessibility text size x standard and increased contrast.
+@MainActor
 struct SnapshotVariant {
     let name: String
     let traits: UITraitCollection
