@@ -62,6 +62,24 @@ jobs:
             CODE_SIGNING_ALLOWED=NO 2>&1 | tee "$RUNNER_TEMP/xcodebuild.log" \
             | grep -E --line-buffered '(error:|warning:|Test |✔|✘|\*\* )' || true
           grep -q '\*\* TEST SUCCEEDED \*\*' "$RUNNER_TEMP/xcodebuild.log"
+      # The Catalog host app builds so it cannot rot. XcodeGen is pinned by release and
+      # checked by hash.
+      - name: Build the Catalog (XcodeGen, iOS simulator)
+        run: |
+          set -o pipefail
+          curl -fsSL -o "$RUNNER_TEMP/xcodegen.zip" \
+            https://github.com/yonaskolb/XcodeGen/releases/download/2.46.0/xcodegen.zip
+          echo "4d9e34b62172d645eed6457cac13fc222569974098ef4ee9c3368bedf0196806  $RUNNER_TEMP/xcodegen.zip" | shasum -a 256 -c -
+          unzip -q "$RUNNER_TEMP/xcodegen.zip" -d "$RUNNER_TEMP"
+          "$RUNNER_TEMP/xcodegen/bin/xcodegen" generate --spec Catalog/project.yml
+          xcodebuild build -project Catalog/ScshafeCatalog.xcodeproj -scheme ScshafeCatalog \
+            -destination "platform=iOS Simulator,name=iPhone 17,OS=26.5" \
+            CODE_SIGNING_ALLOWED=NO 2>&1 | tee "$RUNNER_TEMP/catalog.log" \
+            | grep -E --line-buffered '(error:|\*\* )' || true
+          grep -q '\*\* BUILD SUCCEEDED \*\*' "$RUNNER_TEMP/catalog.log" || {
+            grep -E -B2 -A12 'error|failed|FAILED' "$RUNNER_TEMP/catalog.log" | tail -80
+            exit 1
+          }
       # Snapshot references are recorded on this runner image; a missing or
       # differing one fails the test and uploads the images to commit or inspect.
       - name: Upload snapshots

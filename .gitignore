@@ -6,6 +6,9 @@ xcuserdata/
 *.xcuserstate
 *.xcscmblueprint
 
+# The Catalog's generated Xcode project (XcodeGen)
+Catalog/*.xcodeproj/
+
 # Python (the token generator and the repository tests)
 __pycache__/
 *.py[cod]
